@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "f127e9e7-672d-4898-88d6-185507454765",
+		"name": "nk-gateway-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "person",
+			"item": [
+				{
+					"name": "Get All Persons",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{GATEWAY_SRV_HOST}}:{{GATEWAY_SRV_PORT}}/backend/persons",
+							"protocol": "http",
+							"host": [
+								"{{GATEWAY_SRV_HOST}}"
+							],
+							"port": "{{GATEWAY_SRV_PORT}}",
+							"path": [
+								"backend",
+								"persons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Person Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaXNBY3RpdmUiOnRydWUsImlzQWRtaW4iOnRydWUsInBlcnNvbklkIjoiODQwMDI2IiwiZGF0ZSI6IjIwMjAtMDctMzBUMTM6MzE6NTQuMTk4WiJ9LCJpYXQiOjE1OTYxMTU5MTQsImV4cCI6MTU5NjExOTUxNH0.rCHSaKxGZ9wQtLwzaowwln4BeoFMUW1yODWMB6HIqq4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{GATEWAY_SRV_HOST}}:{{GATEWAY_SRV_PORT}}/backend/person",
+							"protocol": "http",
+							"host": [
+								"{{GATEWAY_SRV_HOST}}"
+							],
+							"port": "{{GATEWAY_SRV_PORT}}",
+							"path": [
+								"backend",
+								"person"
+							]
+						},
+						"description": "Get one user record from the database"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Person",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\": \"person\",\n\t\"lastName\": \"El Khoury\",\n\t\"age\": 29,\n\t\"isAdmin\": false,\n\t\"email\": \"person@gmail.com\",\n\t\"password\": \"12345678\",\n\t\"dob\": \"1991-06-10\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{GATEWAY_SRV_HOST}}:{{GATEWAY_SRV_PORT}}/backend/person",
+							"protocol": "http",
+							"host": [
+								"{{GATEWAY_SRV_HOST}}"
+							],
+							"port": "{{GATEWAY_SRV_PORT}}",
+							"path": [
+								"backend",
+								"person"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Person",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaXNBY3RpdmUiOnRydWUsImlzQWRtaW4iOnRydWUsInBlcnNvbklkIjoiODQwMDI2IiwiZGF0ZSI6IjIwMjAtMDctMzBUMTM6MzU6MDkuNjc4WiJ9LCJpYXQiOjE1OTYxMTYxMDksImV4cCI6MTU5NjExOTcwOX0.jdPL1_Nh3VgpauyreRasVpJ9REC9lCltiowdZwmUAt4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{GATEWAY_SRV_HOST}}:{{GATEWAY_SRV_PORT}}/backend/person/840110",
+							"protocol": "http",
+							"host": [
+								"{{GATEWAY_SRV_HOST}}"
+							],
+							"port": "{{GATEWAY_SRV_PORT}}",
+							"path": [
+								"backend",
+								"person",
+								"840110"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "authentication",
+			"item": [
+				{
+					"name": "Login person",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@gmail.com\",\n    \"password\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{GATEWAY_SRV_HOST}}:{{GATEWAY_SRV_PORT}}/backend/login",
+							"protocol": "http",
+							"host": [
+								"{{GATEWAY_SRV_HOST}}"
+							],
+							"port": "{{GATEWAY_SRV_PORT}}",
+							"path": [
+								"backend",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaXNBY3RpdmUiOnRydWUsImlzQWRtaW4iOnRydWUsInBlcnNvbklkIjoiODQwMDI2IiwiZGF0ZSI6IjIwMjAtMDctMzBUMTM6Mjg6MDcuMDc0WiJ9LCJpYXQiOjE1OTYxMTU2ODcsImV4cCI6MTU5NjExOTI4N30.PP6KAcF9UrZyk2zGvtdtUBaerOfZiHkx1XU3DgW3O8I\",\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaXNBY3RpdmUiOnRydWUsImlzQWRtaW4iOnRydWUsInBlcnNvbklkIjoiODQwMDI2IiwiZGF0ZSI6IjIwMjAtMDctMzBUMTM6Mjg6MDcuMDc2WiJ9LCJpYXQiOjE1OTYxMTU2ODcsImV4cCI6MTU5NjIwMjA4N30._glYhpkr-Jo8Z5KBg9aXsVPLRr75y1ojKRLU2FPLXF8\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{GATEWAY_SRV_HOST}}:{{GATEWAY_SRV_PORT}}/backend/token/refresh",
+							"protocol": "http",
+							"host": [
+								"{{GATEWAY_SRV_HOST}}"
+							],
+							"port": "{{GATEWAY_SRV_PORT}}",
+							"path": [
+								"backend",
+								"token",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
