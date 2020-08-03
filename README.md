@@ -338,6 +338,16 @@ curl --location --request DELETE 'http://localhost:1337/backend/person/861206' \
 
 One can use the access token of a person that is not admin. The API will not allow the person to perform this operation.
 
+# Future Enhancements
+
+The project, in its current state is very basic. Any enhancement, addition, and modification is welcomed to the project. However, any modification to the code requires modifications to the documentation files in this repository. Some of the enhancements include but are not limited to:
+
+* Better error handling
+* Better user authentication mechanisms
+* Addition of other APIs
+* The incorporation of other microservices (of any kind)
+
+This project is created by the community, and for the community. Everyone is encouraged to participate in this project, whether to learn, or to teach.
 
 
 
