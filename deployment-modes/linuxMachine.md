@@ -25,8 +25,6 @@ The command above creates a Docker container hosting the Arango database, expose
 * username: root
 * password openSesame
 
-Once deployed, through a web browser, login to the database ```http://localhost:8529```, create a database named ```persons```, and inside this database, create a collection named ```persons```.
-
 
 ## Redis Database
 

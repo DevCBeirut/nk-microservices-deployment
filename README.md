@@ -50,7 +50,7 @@ Assuming all the components are set up and are running, login to the Arango data
 5. file ```config/custom.js``` of every service contains a list of user defined global variables.
 6. file ```config/routes.js``` of every service contains a list of routes, each of which is linked to a controller file (API).
 7. file ```config/http.js``` of every service adds a request ID to the incoming request. This ID is used to trace the request through its journey from and back to the client.
-
+8. file ```config/bootstrap.js``` contains user generated scripts that get executed before the launch of the service (i.e., The backend service initializes the Arango database and collection).
 # API Explanation
 All the requests must hit the Gateway microservice, and never the backend microservice directly.
 
