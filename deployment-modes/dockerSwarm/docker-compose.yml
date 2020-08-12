@@ -1,0 +1,83 @@
+version: "3.3"
+
+networks:
+  private-network:
+    driver: overlay
+    attachable: true
+
+services:
+  person-db:
+    image: arangodb/arangodb:3.6.3
+    networks:
+      - private-network
+    environment:
+      - ARANGO_ROOT_PASSWORD=openSesame
+      - ARANGO_STORAGE_ENGINE=rocksdb
+    deploy:
+      replicas: 1
+      endpoint_mode: dnsrr
+      restart_policy:
+        condition: always
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
+  redis:
+    image: redis:6.0.5
+    depends_on:
+      - person-db
+    networks:
+      - private-network
+    deploy:
+      replicas: 1
+      endpoint_mode: dnsrr
+      restart_policy:
+        condition: always
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
+  backend:
+    image: nicolaselkhoury44/nk-backend-service
+    depends_on:
+      - person-db
+      - redis
+    environment:
+      - ARANGODB_HOST=person-db
+      - DEPLOYMENT_MODE=dockerCompose
+    networks:
+      - private-network
+    deploy:
+      replicas: 1
+      endpoint_mode: dnsrr
+      restart_policy:
+        condition: always
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
+  gateway:
+    image: nicolaselkhoury44/nk-gateway-service
+    ports:
+      - "1337:1337"
+    depends_on:
+      - person-db
+      - redis
+    environment:
+      - BACKEND_HOST=backend
+      - REDIS_HOST=redis
+    networks:
+      - private-network
+    deploy:
+      replicas: 1
+      endpoint_mode: vip
+      restart_policy:
+        condition: always
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M

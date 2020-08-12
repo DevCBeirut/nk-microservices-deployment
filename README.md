@@ -35,6 +35,7 @@ That being said, section [API Explanation](#API-Explanation) a detailed explanat
 As part of the goals of this project, multiple modes of deployment will be provided. This sections will be updated as more deployment modes will be added. Below is the list of available deployment modes for the project:
 
 * [Linux Machine](deployment-modes/linuxMachine.md)
+* [Docker Swarm Services](deployment-modes/dockerSwarm/dockerSwarm.md)
 
 # Prerequisites
 
