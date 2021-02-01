@@ -37,12 +37,6 @@ As part of the goals of this project, multiple modes of deployment will be provi
 * [Linux Machine](deployment-modes/linuxMachine.md)
 * [Docker Swarm Services](deployment-modes/dockerSwarm/dockerSwarm.md)
 
-# Prerequisites
-
-Assuming all the components are set up and are running, login to the Arango database and:
-1. Create a database called ```persons```
-2. Create a collection called ```persons```
-
 # Notes
 1. folder ```api/controllers``` of every service contains a list of files, each of which represents an API.
 2. folder ```api/helpers``` of every service contains a list of files, each of which represents a global helper function, that can be used by other APIs or helper functions.
