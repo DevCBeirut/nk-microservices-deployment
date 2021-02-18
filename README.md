@@ -36,6 +36,7 @@ As part of the goals of this project, multiple modes of deployment will be provi
 
 * [Linux Machine](deployment-modes/linuxMachine.md)
 * [Docker Swarm Services](deployment-modes/dockerSwarm/dockerSwarm.md)
+* [Terraform - AWS EC2 Deployment](deployment-modes/terraform/aws/ec2/README.md)
 
 # Notes
 1. folder ```api/controllers``` of every service contains a list of files, each of which represents an API.
